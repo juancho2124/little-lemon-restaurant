@@ -36,11 +36,11 @@ const Specials = () => {
   return (
     <div className="specials-container">
       <div className="menu-container">
+        <div className="special-heading">
+          <h1>This weeks specials!</h1>
+          <button className="btn">Online Menu</button>
+        </div>
         <div className="menu">
-          <div>
-            <h1>This weeks specials!</h1>
-            <button className="btn">Online Menu</button>
-          </div>
           <div className="card-container">
             {specialMenus.map((menu, index) => (
               <div key={index} className="menu-card">

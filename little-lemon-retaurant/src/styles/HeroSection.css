@@ -7,33 +7,31 @@
   --highlight-color2: #333333;
 }
 
-.hero-container {
+/* .hero-container {
   width: 100%;
   height: 80vh;
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
-}
+} */
 
 .hero-section-background {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 50vh;
+  height: auto;
   background-color: #495e57;
   border-radius: 0 0 8px 8px;
+  margin-bottom: 20px;
 }
 
 .hero-content {
-  padding: 20px 0;
+  padding: 40px 0;
   width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  position: relative;
-  padding-top: 100px;
 }
 
 .hero-text,
@@ -83,3 +81,21 @@
   border-radius: 16px;
   height: 400px;
 }
+
+/* @media (max-width: 1024px) {
+  .hero-container {
+    height: auto;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-section-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #495e57;
+    border-radius: 0 0 8px 8px;
+  }
+} */
