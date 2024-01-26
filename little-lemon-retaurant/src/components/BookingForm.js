@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import "../styles/BookingForm.css";
+import React from "react";
 import "../styles/ReservationsPage.css";
 
 import * as yup from "yup";
@@ -29,9 +28,7 @@ const reservationSchema = yup.object().shape({
   time: yup.string().required("Time is Required"),
 });
 
-function BookingForm() {
-  const [timeSlots, setTimeSlots] = useState([]);
-
+function BookingForm({ availableTimes, onDateChange }) {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -48,36 +45,9 @@ function BookingForm() {
     },
   });
 
-  useEffect(() => {
-    if (formik.values.date) {
-      const dayOfWeek = new Date(formik.values.date).getDay();
-      setTimeSlots(getTimeSlotsForDay(dayOfWeek));
-    }
-  }, [formik.values.date]);
-
-  const getTimeSlotsForDay = (dayOfWeek) => {
-    if (dayOfWeek === 0) {
-      // Sunday
-      return generateTimeSlots("12:00", "21:00");
-    } else if (dayOfWeek >= 1 && dayOfWeek <= 4) {
-      // Monday to Thursday
-      return generateTimeSlots("11:00", "22:00");
-    } else {
-      // Friday and Saturday
-      return generateTimeSlots("11:00", "23:00");
-    }
-  };
-
-  const generateTimeSlots = (start, end) => {
-    let slots = [];
-    let currentHour = parseInt(start.split(":")[0]);
-    let endHour = parseInt(end.split(":")[0]);
-
-    while (currentHour <= endHour) {
-      slots.push(`${currentHour.toString().padStart(2, "0")}:00`);
-      currentHour++;
-    }
-    return slots;
+  const handleDateChange = (e) => {
+    formik.handleChange(e);
+    onDateChange(e.target.value);
   };
 
   return (
@@ -99,7 +69,6 @@ function BookingForm() {
           <div className="error-message">{formik.errors.name}</div>
         )}
       </div>
-
       {/* Email Field */}
       <div className="field">
         <label htmlFor="email">Email</label>
@@ -117,7 +86,6 @@ function BookingForm() {
           <div className="error-message">{formik.errors.email}</div>
         )}
       </div>
-
       {/* Telephone Field */}
       <div className="field">
         <label htmlFor="telephone">Telephone</label>
@@ -137,7 +105,6 @@ function BookingForm() {
           <div className="error-message">{formik.errors.telephone}</div>
         )}
       </div>
-
       {/* Occasion Field */}
       <div className="field occasion">
         <label htmlFor="occasion">Occasion (optional)</label>
@@ -155,7 +122,6 @@ function BookingForm() {
           </select>
         </div>
       </div>
-
       {/* Number of Guests Field */}
       <div className="field guest">
         <label htmlFor="guests">Guests</label>
@@ -174,14 +140,13 @@ function BookingForm() {
           <div className="error-message">{formik.errors.guests}</div>
         )}
       </div>
-
       {/* Date Field */}
       <div className="field">
         <label htmlFor="date">Date</label>
         <input
           type="date"
           name="date"
-          onChange={formik.handleChange}
+          onChange={handleDateChange}
           value={formik.values.date}
           onBlur={formik.handleBlur}
           className={formik.touched.date && formik.errors.date ? "error" : ""}
@@ -190,29 +155,27 @@ function BookingForm() {
           <div className="error-message">{formik.errors.date}</div>
         )}
       </div>
-
       {/* Time Field */}
-      {formik.values.date && (
-        <div className="field">
-          <select
-            name="time"
-            onChange={formik.handleChange}
-            value={formik.values.time}
-            onBlur={formik.handleBlur}
-            className={formik.touched.time && formik.errors.time ? "error" : ""}
-          >
-            <option value="">Select a time</option>
-            {timeSlots.map((time) => (
-              <option key={time} value={time}>
-                {time}
-              </option>
-            ))}
-          </select>
-          {formik.touched.time && formik.errors.time && (
-            <div className="error-message">{formik.errors.time}</div>
-          )}
-        </div>
-      )}
+      <div className="field">
+        <label htmlFor="time">Time</label>
+        <select
+          name="time"
+          onChange={formik.handleChange}
+          value={formik.values.time}
+          onBlur={formik.handleBlur}
+          className={formik.touched.time && formik.errors.time ? "error" : ""}
+        >
+          <option value="">Select a time</option>
+          {availableTimes.map((time) => (
+            <option key={time} value={time}>
+              {time}
+            </option>
+          ))}
+        </select>
+        {formik.touched.time && formik.errors.time && (
+          <div className="error-message">{formik.errors.time}</div>
+        )}
+      </div>
 
       {/* Submit Button */}
       <button className="reserve-btn" type="submit">

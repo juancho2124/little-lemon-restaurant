@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "../styles/ReservationsPage.css";
 import BookingForm from "./BookingForm";
 
 const ReservationsPage = () => {
+  const [selectedDate, setSelectedDate] = useState("");
+  const [availableTimes, setAvailableTimes] = useState([]);
+
+  const getTimeSlotsForDay = useCallback((dayOfWeek) => {
+    if (dayOfWeek === 6) {
+      // Sunday
+      return generateTimeSlots("12:00", "21:00");
+    } else if (dayOfWeek >= 0 && dayOfWeek <= 3) {
+      // Monday to Thursday
+      return generateTimeSlots("11:00", "22:00");
+    } else {
+      // Friday and Saturday
+      return generateTimeSlots("11:00", "23:00");
+    }
+  }, []);
+
+  const generateTimeSlots = (start, end) => {
+    let slots = [];
+    let currentHour = parseInt(start.split(":")[0]);
+    let endHour = parseInt(end.split(":")[0]);
+
+    while (currentHour <= endHour) {
+      slots.push(`${currentHour.toString().padStart(2, "0")}:00`);
+      currentHour++;
+    }
+    return slots;
+  };
+
+  useEffect(() => {
+    if (selectedDate) {
+      const dayOfWeek = new Date(selectedDate).getDay();
+      setAvailableTimes(getTimeSlotsForDay(dayOfWeek));
+    }
+  }, [selectedDate, getTimeSlotsForDay]);
+
   return (
     <div className="reservation-container">
       <div className="reservation-content">
@@ -25,7 +60,10 @@ const ReservationsPage = () => {
             Please fill in and submit form to book your reservation at Little
             Lemon.
           </p>
-          <BookingForm />
+          <BookingForm
+            availableTimes={availableTimes}
+            onDateChange={setSelectedDate}
+          />
         </div>
       </div>
     </div>
