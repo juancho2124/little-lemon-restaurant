@@ -1,0 +1,53 @@
+:root {
+  --primary-color1: #495e57;
+  --primary-color2: #f4ce14;
+  --secondary-color1: #ee9972;
+  --secondary-color2: #fbdabb;
+  --highlight-color1: #edefee;
+  --highlight-color2: #333333;
+}
+
+.reservation-container {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.42),
+      rgba(0, 0, 0, 0.73)
+    ),
+    url(../Assets/restaurant2.jpg);
+  width: 100%;
+  background-size: cover;
+  height: 100vh;
+}
+
+.reservation-content {
+  width: 80%;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.reservation-text,
+.form {
+  flex-basis: 50%;
+  flex-shrink: 0;
+}
+
+.reservation-text {
+  color: var(--highlight-color1);
+}
+
+.reservation-text h2 {
+  font-size: 60px;
+}
+
+.reservation-text p {
+  font-size: 20px;
+}
+
+.form {
+  height: 500px;
+  width: 50%;
+  background-color: var(--highlight-color1);
+}

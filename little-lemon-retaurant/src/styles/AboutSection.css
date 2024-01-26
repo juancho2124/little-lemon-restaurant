@@ -34,7 +34,8 @@
   margin: 0 auto;
 }
 
-.about-text {
+.about-text,
+.about-images {
   flex-basis: 50%;
   flex-shrink: 0;
 }
