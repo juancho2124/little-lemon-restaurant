@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/ReservationsPage.css";
 import BookingForm from "./BookingForm";
 
@@ -38,6 +39,15 @@ const ReservationsPage = () => {
     }
   }, [selectedDate, getTimeSlotsForDay]);
 
+  const navigate = useNavigate();
+  const submitForm = (formData) => {
+    console.log("Submitting Form Data:", formData);
+    // Simulate form submission
+    setTimeout(() => {
+      navigate("/confirmation");
+    }, 1000); // Simulate async operation like an API call
+  };
+
   return (
     <div className="reservation-container">
       <div className="reservation-content">
@@ -63,6 +73,7 @@ const ReservationsPage = () => {
           <BookingForm
             availableTimes={availableTimes}
             onDateChange={setSelectedDate}
+            onSubmit={submitForm}
           />
         </div>
       </div>

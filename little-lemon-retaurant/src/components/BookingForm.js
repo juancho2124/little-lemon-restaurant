@@ -28,7 +28,7 @@ const reservationSchema = yup.object().shape({
   time: yup.string().required("Time is Required"),
 });
 
-function BookingForm({ availableTimes, onDateChange }) {
+function BookingForm({ availableTimes, onDateChange, onSubmit }) {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -40,8 +40,9 @@ function BookingForm({ availableTimes, onDateChange }) {
       occasion: "select",
     },
     validationSchema: reservationSchema,
-    onSubmit: (values) => {
-      console.log("Form Data", values);
+    onSubmit: (values, actions) => {
+      onSubmit(values);
+      actions.setSubmitting(false);
     },
   });
 
