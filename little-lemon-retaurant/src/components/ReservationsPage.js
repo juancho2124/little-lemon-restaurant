@@ -20,6 +20,11 @@ const ReservationsPage = () => {
           </p>
         </div>
         <div className="form">
+          <h1>Reserve a Table</h1>
+          <p>
+            Please fill in and submit form to book your reservation at Little
+            Lemon.
+          </p>
           <BookingForm />
         </div>
       </div>
