@@ -10,14 +10,14 @@
 .about-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;
 }
 
 .about-heading {
   width: 80%;
   margin-right: auto;
   margin-left: auto;
-  padding: 40px;
+  padding-top: 40px;
 }
 
 .about-heading h1 {
@@ -27,7 +27,7 @@
 
 .about-content {
   width: 80%;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,12 +56,6 @@
   padding-right: 20px;
 }
 
-.about-images {
-  position: relative;
-  width: 50%;
-  height: 100%;
-}
-
 .about-images img {
   object-fit: cover;
   border-radius: 16px;
@@ -70,4 +64,63 @@
 .about-image1 {
   width: 100%;
   height: auto;
+}
+
+@media (max-width: 1024px) {
+  .about-heading h1,
+  .about-text h1 {
+    font-size: 48px;
+  }
+
+  .about-text h2 {
+    font-size: 30px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .about-image1 {
+    height: 450px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-heading h1,
+  .about-text h1 {
+    font-size: 48px;
+  }
+
+  .about-text h2 {
+    font-size: 30px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-images img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 425px) {
+  .about-heading h1,
+  .about-text h1 {
+    font-size: 40px;
+  }
+
+  .about-text h2 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+  }
 }

@@ -47,3 +47,58 @@
 nav ul li a:hover {
   background-color: var(--highlight-color1);
 }
+
+.hamburger-menu {
+  position: relative;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .navbar {
+    border-radius: 10px 0px 0px 10px;
+    z-index: 1;
+    position: absolute;
+    position: relative;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 12%;
+    right: 0;
+    width: 50%;
+  }
+
+  .navbar.show {
+    display: block;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar ul li {
+    padding: 10px;
+  }
+
+  .navbar a {
+    font-size: 16px;
+    color: var(--highlight-color2);
+    text-align: left;
+    padding: 8px 12px;
+    display: block;
+  }
+
+  .navbar a:hover {
+    background-color: var(--highlight-color1);
+  }
+}

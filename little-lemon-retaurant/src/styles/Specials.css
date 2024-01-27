@@ -9,10 +9,10 @@
 }
 
 .specials-container {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
   width: 100%;
   margin: 50px 0;
   position: relative;
@@ -20,7 +20,7 @@
 
 .menu-container {
   width: 80%;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .menu {
@@ -31,7 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px; /* Adjust as needed */
+  margin-bottom: 20px;
 }
 
 .special-heading h1 {
@@ -114,4 +114,95 @@
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
+}
+
+@media (max-width: 1024px) {
+  .special-heading h1 {
+    font-size: 48px;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  .heading-container {
+    height: auto;
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .heading-container h2 {
+    font-size: 20px;
+  }
+
+  .heading-container h3 {
+    font-size: 20px;
+  }
+
+  .card-container p {
+    font-size: 16px;
+  }
+
+  .order-button {
+    padding: 10px 20px;
+    font-size: medium;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu-card {
+    width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .card-container p {
+    font-size: 18px;
+    height: auto;
+  }
+}
+
+@media (max-width: 690px) {
+}
+
+@media (max-width: 560px) {
+  .special-heading h1 {
+    font-size: 30px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .menu-container {
+    width: 100%;
+  }
+
+  .special-heading {
+    padding: 0 20px;
+  }
+
+  .card-container {
+    width: 90%;
+    align-self: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .special-heading h1 {
+    font-size: 24px;
+  }
+
+  .btn {
+    padding: 5px 10px;
+  }
 }

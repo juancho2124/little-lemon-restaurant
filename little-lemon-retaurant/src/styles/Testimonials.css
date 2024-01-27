@@ -45,6 +45,7 @@
 }
 
 .testimonial-card .testimonial-content {
+  height: auto;
   padding: 15px;
   color: var(--primary-color1);
 }
@@ -57,4 +58,23 @@
 .testimonial-card p {
   text-align: start;
   font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  .testimonials-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-content {
+    height: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .testimonial-container h1 {
+    font-size: 30px;
+  }
+  .testimonials-card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
