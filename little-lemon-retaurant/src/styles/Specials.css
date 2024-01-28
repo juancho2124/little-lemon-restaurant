@@ -192,8 +192,9 @@
   }
 
   .card-container {
-    width: 90%;
+    width: 100%;
     align-self: center;
+    padding: 0px 10px;
   }
 }
 
