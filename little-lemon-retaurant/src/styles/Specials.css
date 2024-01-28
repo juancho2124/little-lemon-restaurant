@@ -116,11 +116,15 @@
   background-color: transparent;
 }
 
+.menu-card a {
+  display: contents;
+}
+
 @media (max-width: 1024px) {
   .special-heading h1 {
     font-size: 48px;
   }
-  .btn {
+  .order-button {
     padding: 10px 20px;
     font-size: 18px;
   }
@@ -157,7 +161,7 @@
     align-items: center;
   }
   .menu-card {
-    width: 80%;
+    width: 90%;
     height: auto;
     margin-bottom: 20px;
   }

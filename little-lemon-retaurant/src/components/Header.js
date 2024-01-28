@@ -26,16 +26,16 @@ const Header = () => {
             <NavLink to="#">About</NavLink>
           </li>
           <li>
-            <NavLink to="#">Menu</NavLink>
+            <NavLink to="/comingsoon">Menu</NavLink>
           </li>
           <li>
             <NavLink to="/reservations">Reservations</NavLink>
           </li>
           <li>
-            <NavLink to="#">Order Online</NavLink>
+            <NavLink to="/comingsoon">Order Online</NavLink>
           </li>
           <li>
-            <NavLink to="#">Login</NavLink>
+            <NavLink to="/comingsoon">Login</NavLink>
           </li>
         </ul>
       </nav>

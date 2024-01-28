@@ -4,6 +4,7 @@ import "../styles/Specials.css";
 import greeksalad from "../Assets/greeksalad.jpg";
 import lemondessert from "../Assets/lemondessert.jpg";
 import bruchetta from "../Assets/bruchetta.jpg";
+import { NavLink } from "react-router-dom";
 
 const Specials = () => {
   const specialMenus = [
@@ -38,7 +39,9 @@ const Specials = () => {
       <div className="menu-container">
         <div className="special-heading">
           <h1>This weeks specials!</h1>
-          <button className="btn">Online Menu</button>
+          <NavLink to="/comingsoon">
+            <button className="btn">Online Menu</button>
+          </NavLink>
         </div>
         <div className="menu">
           <div className="card-container">
@@ -50,7 +53,9 @@ const Specials = () => {
                   <h3>{menu.price}</h3>
                 </div>
                 <p>{menu.description}</p>
-                <button className="order-button">{menu.order}</button>
+                <NavLink to="/comingsoon">
+                  <button className="order-button">{menu.order}</button>
+                </NavLink>
               </div>
             ))}
           </div>

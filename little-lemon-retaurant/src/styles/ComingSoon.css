@@ -7,13 +7,13 @@
   --highlight-color2: #333333;
 }
 
-.confirmed-container {
+.coming-container {
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.42),
       rgba(0, 0, 0, 0.73)
     ),
-    url(../Assets/restaurant2.jpg);
+    url(../Assets/restaurant.jpg);
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -22,38 +22,28 @@
   align-items: center;
 }
 
-.confirmed-content {
+.coming-content {
   text-align: center;
   width: 80%;
 }
 
-.confirmed-content h1 {
+.coming-text h1 {
   font-size: 60px;
   color: var(--highlight-color1);
 }
 
-.confirmed-content p {
+.coming-text p {
+  margin-bottom: 20px;
   font-size: 30px;
   color: var(--highlight-color1);
-  margin-bottom: 20px;
 }
 
 @media (max-width: 425px) {
-  .confirmed-content h1 {
+  .coming-text h1 {
     font-size: 40px;
   }
 
-  .confirmed-content p {
+  .coming-text p {
     font-size: 24px;
-  }
-}
-
-@media (max-width: 320px) {
-  .confirmed-content h1 {
-    font-size: 30px;
-  }
-
-  .confirmed-content p {
-    font-size: 18px;
   }
 }
