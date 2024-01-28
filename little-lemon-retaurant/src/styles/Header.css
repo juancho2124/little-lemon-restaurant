@@ -49,6 +49,7 @@ nav ul li a:hover {
 }
 
 .hamburger-menu {
+  color: var(--highlight-color2);
   position: relative;
   display: none;
   background: none;
